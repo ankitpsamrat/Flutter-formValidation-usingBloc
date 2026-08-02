@@ -12,21 +12,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Bloc Explore',
-      home: MultiBlocProvider(
-        providers: [
-          // BlocProvider(create: (context) => CounterBloc()), // normal method
-          // BlocProvider(create: (context) => CounterBloc()), // equatable method
-          // BlocProvider(create: (context) => SwitchBloc()),
-          // BlocProvider(create: (context) => ImgPickerBloc()),
-          // BlocProvider(create: (context) => SignInBloc()),
-          // BlocProvider(create: (context) => NameBloc()),
-          // BlocProvider(create: (context) => InternetBloc()),
-          BlocProvider(create: (context) => ToDoBloc()),
-        ],
-        child: const ToDoScreen(),
+    return MultiBlocProvider(
+      providers: [
+        // BlocProvider(create: (context) => CounterBloc()), // normal method
+        // BlocProvider(create: (context) => CounterBloc()), // equatable method
+        // BlocProvider(create: (context) => SwitchBloc()),
+        // BlocProvider(create: (context) => ImgPickerBloc()),
+        // BlocProvider(create: (context) => SignInBloc()),
+        // BlocProvider(create: (context) => NameBloc()),
+        // BlocProvider(create: (context) => InternetBloc()),
+        BlocProvider(create: (context) => ToDoBloc()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Bloc Explore',
+        home: ToDoScreen(),
       ),
     );
   }

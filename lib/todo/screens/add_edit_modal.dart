@@ -57,18 +57,20 @@ class _AddEditModalState extends State<AddEditModal> {
           const SizedBox(height: 30),
           ElevatedButton(
             onPressed: () {
+              final todoBloc = context.read<ToDoBloc>();
+
               if (widget.todo == null) {
-                context.read<ToDoBloc>().add(
-                  AddToDoEvent(title: _controller.text.trim()),
-                );
+                todoBloc.add(AddToDoEvent(title: _controller.text.trim()));
               } else {
-                context.read<ToDoBloc>().add(
+                todoBloc.add(
                   EditToDoEvent(
                     id: widget.todo!.id,
                     newTitle: _controller.text.trim(),
                   ),
                 );
               }
+
+              Navigator.pop(context);
             },
             child: const Text("Submit"),
           ),
